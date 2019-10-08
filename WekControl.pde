@@ -43,13 +43,15 @@ class WekControl {
     }
     oscP5.send(ctrlMsg("stopRecording"), dest);
   }
-  public void startDtwRecording() {     
+  // Index starts from 1
+  public void startDtwRecording(int i) {
+    OscMessage msg = ctrlMsg("startDtwRecording");
     if (debugPrint) {       
-      println("Started DTW Recording");
+      println("Started DTW Recording #" + i);
     }     
-    oscP5.send(ctrlMsg("startDtwRecording"), dest);
+    oscP5.send(msg, dest);
   }
-  public void stopDtwRecording() {     
+  public void stopDtwRecording() {
     if (debugPrint) {       
       println("Stopped DTW Recording");
     }     
